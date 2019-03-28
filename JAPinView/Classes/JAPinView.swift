@@ -15,6 +15,13 @@ public class JAPinView: UIView {
 
     private var stackView = UIStackView()
     
+    /// Tint color of text fields (cursor)
+    /// By default lets set it white
+    var textColor: UIColor = .white
+    
+    /// Tint color of text fields (cursor)
+    /// By default lets set it white
+    var textFieldTintColor: UIColor = .white
     
     /// Number of input field will be desided by this property.
     /// By defalut it is four boxes PinView
@@ -44,7 +51,7 @@ public class JAPinView: UIView {
     
     /// Password will be showing as secured as '∙', if you set it to false then the passwoed will be shown to user
     @IBInspectable
-    open var isSecure: Bool = true
+    open var isSecure: Bool = false
     
     
     /// Set the handler to lisen the pass code value after successful enterd
@@ -91,7 +98,9 @@ public class JAPinView: UIView {
             field.borderStyle = .roundedRect
             field.placeholder = placeholderChar
             field.keyboardType = .phonePad
-            field.isSecureTextEntry = true
+            field.isSecureTextEntry = isSecure
+            field.textColor = textColor
+            field.tintColor = .white
             field.backgroundColor = fieldBackgroundColor
             field.textAlignment = .center
             stackView.addArrangedSubview(field)
