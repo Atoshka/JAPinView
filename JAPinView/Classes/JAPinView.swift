@@ -17,7 +17,22 @@ public class JAPinView: UIView {
     
     /// Tint color of text fields (cursor)
     /// By default lets set it white
-    var textColor: UIColor = .white
+    var textColor: UIColor = .green
+    
+    /// Border color of text fields stack
+    var borderColor: UIColor = .green
+    
+    /// Background color of text fields
+    var textfieldBackgroundColor: UIColor = .red
+    
+    /// Border width of text fields stack
+    var borderWidth: CGFloat = 0.5
+    
+    /// Corner radius of text fields stack
+    var cornerRadius: CGFloat = 6
+    
+    /// Custom font
+    var font: UIFont = UIFont.systemFont(ofSize: 10)
     
     /// Tint color of text fields (cursor)
     /// By default lets set it white
@@ -95,13 +110,17 @@ public class JAPinView: UIView {
         var fields = [JATextField]()
         for _ in 1...passcodeLength {
             let field = JATextField()
-            field.borderStyle = .roundedRect
+            field.borderStyle = .none
             field.placeholder = placeholderChar
             field.keyboardType = .phonePad
+            field.font = self.font
             field.isSecureTextEntry = isSecure
-            field.textColor = textColor
+            field.textColor = self.textColor
+            field.layer.borderColor = self.borderColor.cgColor
+            field.layer.cornerRadius = self.cornerRadius
+            field.layer.borderWidth = self.borderWidth
             field.tintColor = .white
-            field.backgroundColor = fieldBackgroundColor
+            field.backgroundColor = self.fieldBackgroundColor
             field.textAlignment = .center
             stackView.addArrangedSubview(field)
             fields.append(field)
