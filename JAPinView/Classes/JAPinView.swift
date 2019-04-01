@@ -17,26 +17,26 @@ public class JAPinView: UIView {
     
     /// Tint color of text fields (cursor)
     /// By default lets set it white
-    var textColor: UIColor = .green
+    public var textColor: UIColor = .green
     
     /// Border color of text fields stack
-    var borderColor: UIColor = .green
+    public var borderColor: UIColor = .green
     
     /// Background color of text fields
-    var textfieldBackgroundColor: UIColor = .red
+    public var textfieldBackgroundColor: UIColor = .red
     
     /// Border width of text fields stack
-    var borderWidth: CGFloat = 0.5
+    public var borderWidth: CGFloat = 0.5
     
     /// Corner radius of text fields stack
-    var cornerRadius: CGFloat = 6
+    public var cornerRadius: CGFloat = 6
     
     /// Custom font
-    var font: UIFont = UIFont.systemFont(ofSize: 10)
+    public var font: UIFont = UIFont.systemFont(ofSize: 10)
     
     /// Tint color of text fields (cursor)
     /// By default lets set it white
-    var textFieldTintColor: UIColor = .white
+    public var textFieldTintColor: UIColor = .white
     
     /// Number of input field will be desided by this property.
     /// By defalut it is four boxes PinView
