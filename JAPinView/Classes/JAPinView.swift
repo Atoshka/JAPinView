@@ -22,9 +22,6 @@ public class JAPinView: UIView {
     /// Border color of text fields stack
     public var borderColor: UIColor = .green
     
-    /// Background color of text fields
-    public var textfieldBackgroundColor: UIColor = .red
-    
     /// Border width of text fields stack
     public var borderWidth: CGFloat = 0.5
     
@@ -94,11 +91,21 @@ public class JAPinView: UIView {
         initilize()
     }
     
+    public func refershFields() {
+        self.initilize()
+    }
+    
     func initilize() {
         
         let requiredFieldBoxSize = bounds.width - (CGFloat(passcodeLength)*spacing)
         assert(requiredFieldBoxSize > spacing, "Pin text box area should be greater than 'fieldSpacing' property value")
+        
+        for textField in stackView.subviews {
+            textField.removeFromSuperview()
+        }
+        
         stackView.removeFromSuperview()
+        stackView = UIStackView()
         addSubview(stackView)
         stackView.anchorAllEdgesToSuperview()
         stackView.axis = .horizontal
@@ -107,6 +114,7 @@ public class JAPinView: UIView {
         stackView.spacing = spacing
         stackView.layoutMargins = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
         stackView.isLayoutMarginsRelativeArrangement = true
+        
         var fields = [JATextField]()
         for _ in 1...passcodeLength {
             let field = JATextField()
