@@ -17,10 +17,10 @@ public class JAPinView: UIView {
     
     /// Tint color of text fields (cursor)
     /// By default lets set it white
-    public var textColor: UIColor = .green
+    public var textColor: UIColor = .white
     
     /// Border color of text fields stack
-    public var borderColor: UIColor = .green
+    public var borderColor: UIColor = .white
     
     /// Border width of text fields stack
     public var borderWidth: CGFloat = 0.5
@@ -57,7 +57,7 @@ public class JAPinView: UIView {
     
     /// The background will be shown as light gray color by default, change it to your specified color if you want.
     @IBInspectable
-    var fieldBackgroundColor: UIColor = UIColor.gray.withAlphaComponent(0.4)
+    open var fieldBackgroundColor: UIColor = UIColor.gray.withAlphaComponent(0.4)
     
     
     
@@ -127,7 +127,7 @@ public class JAPinView: UIView {
             field.layer.borderColor = self.borderColor.cgColor
             field.layer.cornerRadius = self.cornerRadius
             field.layer.borderWidth = self.borderWidth
-            field.tintColor = .white
+            field.tintColor = self.textColor
             field.backgroundColor = self.fieldBackgroundColor
             field.textAlignment = .center
             stackView.addArrangedSubview(field)
