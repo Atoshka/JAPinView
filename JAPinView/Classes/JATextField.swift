@@ -72,7 +72,7 @@ public class JATextField: UITextField, UITextFieldDelegate {
             return
         }
         
-        guard let index = lFields.index(of: field) else{
+        guard let index = lFields.firstIndex(of: field) else{
             return
         }
         
@@ -96,7 +96,7 @@ public class JATextField: UITextField, UITextFieldDelegate {
             return
         }
         
-        guard let index = lFields.index(of: field) else{
+        guard let index = lFields.firstIndex(of: field) else{
             return
         }
         

@@ -1,27 +1,27 @@
 PODS:
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
+  - iOSSnapshotTestCase (5.0.2):
+    - iOSSnapshotTestCase/SwiftSupport (= 5.0.2)
+  - iOSSnapshotTestCase/Core (5.0.2)
+  - iOSSnapshotTestCase/SwiftSupport (5.0.2):
+    - iOSSnapshotTestCase/Core
   - JAPinView (0.1.0)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase (~> 2.1.4)
+  - iOSSnapshotTestCase
   - JAPinView (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - FBSnapshotTestCase
+  trunk:
+    - iOSSnapshotTestCase
 
 EXTERNAL SOURCES:
   JAPinView:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  JAPinView: 2bfc9904bf9f507a325e4ecc6a387d5762d06de3
+  iOSSnapshotTestCase: 2d51aa06775e95cecb0a1fb9c5c159ccd1dd4596
+  JAPinView: 7a3cc5ff1cb0c76d96cd63ecec20ed46d378c237
 
-PODFILE CHECKSUM: 891b8b37798f125c185745a524ae08dd781a79da
+PODFILE CHECKSUM: 4299dd993a3c20326f11d45cff62d8d1d0533edb
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4
