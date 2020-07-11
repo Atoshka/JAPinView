@@ -22,6 +22,12 @@ public class JAPinView: UIView {
     /// Border color of text fields stack
     public var borderColor: UIColor = .white
     
+    /// Border color of active text fields stack
+    public var borderActiveColor: UIColor = .white
+    
+    /// Border color of filled text fields stack
+    public var borderFilledColor: UIColor = .white
+    
     /// Border width of text fields stack
     public var borderWidth: CGFloat = 0.5
     
@@ -130,6 +136,7 @@ public class JAPinView: UIView {
             field.tintColor = self.textColor
             field.backgroundColor = self.fieldBackgroundColor
             field.textAlignment = .center
+            field.jaFieldDelegate = self
             stackView.addArrangedSubview(field)
             fields.append(field)
         }
@@ -147,6 +154,23 @@ public class JAPinView: UIView {
     }
 }
 
+
+@available(iOS 9.0, *)
+extension JAPinView: JATextFieldDelegate {
+    func fieldDidStartEditing(field: JATextField) {
+        field.layer.borderColor = borderActiveColor.cgColor
+    }
+    
+    func fieldDidEndEditing(field: JATextField) {
+        if field.text?.count ?? 0 >= 1 {
+            field.layer.borderColor = borderFilledColor.cgColor
+        } else {
+            field.layer.borderColor = borderColor.cgColor
+        }
+    }
+    
+    
+}
 
 extension UIView {
     

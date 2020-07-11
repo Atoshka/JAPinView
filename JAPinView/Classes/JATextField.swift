@@ -8,9 +8,16 @@
 
 import UIKit
 
+protocol JATextFieldDelegate: class {
+    func fieldDidStartEditing(field: JATextField)
+    func fieldDidEndEditing(field: JATextField)
+}
+
 public class JATextField: UITextField, UITextFieldDelegate {
 
     open var fields: [JATextField]?
+    
+    weak var jaFieldDelegate: JATextFieldDelegate?
     
     open var completion: ((_ code: String)->Void)?
     
@@ -48,9 +55,17 @@ public class JATextField: UITextField, UITextFieldDelegate {
     
     override public func deleteBackward() {
         super.deleteBackward()
-        //respondPrevious(field: self)
+        respondPrevious(field: self)
     }
 
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        jaFieldDelegate?.fieldDidStartEditing(field: self)
+    }
+    
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        jaFieldDelegate?.fieldDidEndEditing(field: self)
+    }
+    
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard string.count > 0 else {
             return true
@@ -84,6 +99,7 @@ public class JATextField: UITextField, UITextFieldDelegate {
             if let lCompletion = completion {
                 lCompletion(passCode)
             }
+            jaFieldDelegate?.fieldDidEndEditing(field: field)
             field.resignFirstResponder()
             return
         }
